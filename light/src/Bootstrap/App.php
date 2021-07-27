@@ -2,6 +2,7 @@
 
 namespace Light\Bootstrap;
 
+use Light\Database\DB;
 use Light\Exceptions\Whoops;
 use Light\File\File;
 use Light\Http\Request;
@@ -39,6 +40,8 @@ class App
         $data = Route::handle();
 
         Response::output($data);
+
+
 
     }
 

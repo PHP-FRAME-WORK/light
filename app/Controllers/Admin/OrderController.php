@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use Light\Http\Response;
 use Light\Url\Url;
+use Light\View\View;
 
 class OrderController
 {
@@ -14,7 +15,12 @@ class OrderController
 
     public function list()
     {
-        echo "__LIST__";
+        $arr = [
+            "db" => "mysql",
+            "host" => "localhost"
+        ];
+
+        return View::render("admin.order.list", $arr);
     }
 
     public function insert()

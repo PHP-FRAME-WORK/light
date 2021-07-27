@@ -32,8 +32,8 @@ class App
 
         File::include_file("routes/web.php");
 
-        //echo "<pre>";
-        //print_r( Route::getRoutes() );
+        echo "<pre>";
+        print_r( Route::getRoutes() );
 
 
         $data = Route::handle();

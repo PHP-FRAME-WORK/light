@@ -2,6 +2,9 @@
 
 namespace App\Controllers\Admin;
 
+use Light\Http\Response;
+use Light\Url\Url;
+
 class OrderController
 {
 
@@ -11,14 +14,13 @@ class OrderController
 
     public function list()
     {
-        echo "<br>";
-        return "__OrderController LIST__";
+        echo "__LIST__";
     }
 
     public function insert()
     {
-        echo "<br>";
-        echo "__OrderController INSERT__";
+        echo "__INSERT__";
+        //return Url::redirect("/admin/user");
     }
 
 }

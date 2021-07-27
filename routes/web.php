@@ -2,6 +2,15 @@
 
 use Light\Router\Route;
 
+/*=============================================================================
+=
+=  Route::get()->name('')  name 함수 만들어야함, 그래야 redirect 를 구현할수 있음
+=
+==============================================================================*/
+
+Route::get("admin/order", [\App\Controllers\Admin\OrderController::class, 'insert']);
+
+Route::get('admin/user', [\App\Controllers\Admin\UserController::class, 'list']);
 
 Route::prefix('admin', function (){
 
@@ -15,7 +24,12 @@ Route::prefix('admin', function (){
 });
 
 
-Route::get("admin/order", [\App\Controllers\Admin\OrderController::class, 'insert']);
+
+
+
+
+
+
 
 
 

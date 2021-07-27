@@ -1,6 +1,7 @@
 <?php
 
 namespace Light\Http;
+use Exception;
 
 class Request
 {
@@ -113,9 +114,21 @@ class Request
 
     public static function get_array_from_path()
     {
-        $arr = explode('/', static::getPath());
-        array_shift($arr);
-        array_pop($arr);
+        /*--------------------------------------------------
+        -  Route::get("/admin") 처럼 맨앺에 슬래시 있을때
+        ---------------------------------------------------*/
+        if( preg_match("@^\/*@", static::getPath()) )
+        {
+            $path = preg_replace("@^\/*@", "", static::getPath());
+            $arr = explode('/', $path);
+            array_pop($arr);
+        }
+        else
+        {
+            throw new Exception("must that uri has slash of first stament");
+        }
+
+        //dd($arr);
 
         return $arr;
     }

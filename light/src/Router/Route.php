@@ -57,6 +57,10 @@ class Route
     ================================================================*/
     public static function add($method, $uri, $callback)
     {
+        $uri = preg_replace("@^\/*@", "", $uri);
+
+        //dd($uri);
+
         static::$routes[] = [
             "prefix" => static::$prefix,
             "middleware" => static::$middleware,
@@ -119,6 +123,9 @@ class Route
                 ELSE
                 {
                     //echo "__222__";
+
+                    //dd( $route['callback'][1] );
+
                     if( $route['uri'] == $first && $route['callback'][1] == $last )
                     {
                         $data = static::class_handler($route['middleware'], $route['uri'], $route['callback'][0], $route['callback'][1]);
@@ -126,8 +133,8 @@ class Route
                     }
                     else
                     {
-                        //echo "<br>";
-                        //echo "_NOT_";
+                        echo "<br>";
+                        echo "_NOT_";
                     }
                 }
 

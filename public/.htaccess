@@ -1,0 +1,46 @@
+RewriteEngine On
+
+
+
+
+
+
+# Redirect Trailing Slashes If Not a Folder
+RewriteCond %{REQUEST_FILEMAME} ! -d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
+
+
+# Handle Front Controller
+RewriteCond %{REQUEST_FILEMAME} ! -d
+RewriteCond %{REQUEST_FILEMAME} ! -f
+RewriteRule ^ index.php [L]
+
+
+# debugging
+RewriteLog "d:/rewrite.log"
+RewriteLogLevel 9
+
+
+
+
+
+
+
+#LogLevel alert rewrite:trace6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

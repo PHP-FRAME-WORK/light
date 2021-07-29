@@ -20,11 +20,11 @@ class OrderController
     ============================================*/
     public function list()
     {
-        $result = DB::table('users')->where(["name", "=", "윤승호"])->get();
+        $users = DB::table('users')->get();
 
-        dd($result);
+        //dd( $orders );
 
-        //return View::render("admin.order.list", $arr);
+        return view("admin.order.list", ["users" => $users]);
     }
     /*===========================================
     =

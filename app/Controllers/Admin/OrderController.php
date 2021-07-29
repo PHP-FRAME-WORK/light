@@ -20,9 +20,9 @@ class OrderController
     ============================================*/
     public function list()
     {
-        $sql = DB::table('users')->get();
+        $result = DB::table('users')->where(["name", "=", "윤승호"])->get();
 
-        //dd($sql);
+        dd($result);
 
         //return View::render("admin.order.list", $arr);
     }
@@ -34,7 +34,23 @@ class OrderController
     public function insert()
     {
         echo "__INSERT__";
-        //return Url::redirect("/admin/user");
+        $last_id = DB::table('users')->insert(["name" => "박명수"]);
+
+        echo $last_id;
+
     }
+    /*===========================================
+    =
+    =  update()
+    =
+    ============================================*/
+    public function update()
+    {
+        echo "__UPDATE__";
+        $count = DB::table('users')->where(['name','=','윤승호'])->update(["password" => 4321]);
+        echo $count;
+    }
+
+
 
 }

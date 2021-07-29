@@ -10,7 +10,10 @@ use Light\Router\Route;
 
 Route::get("admin/order", [\App\Controllers\Admin\OrderController::class, 'insert']);
 
-Route::get('admin/user', [\App\Controllers\Admin\UserController::class, 'list']);
+Route::get('admin/order', [\App\Controllers\Admin\OrderController::class, 'update']);
+
+
+
 
 Route::prefix('admin', function (){
 
@@ -22,6 +25,9 @@ Route::prefix('admin', function (){
 
 
 });
+
+
+
 
 
 
